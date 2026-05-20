@@ -1,0 +1,12 @@
+{
+  "name": "@rudus/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Rudus",
+  "files": ["colors.css", "primitives.css", "typography.css", "index.css"],
+  "main": "index.css",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x4kUHD/rudus-design-system"
+  }
+}

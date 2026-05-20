@@ -1,0 +1,8 @@
+{
+  "name": "rudus-design-system",
+  "private": true,
+  "workspaces": [
+    "tokens",
+    "components"
+  ]
+}
