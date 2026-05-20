@@ -1,6 +1,6 @@
 {
   "name": "@eirocw/tokens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Design tokens for Rudus",
   "files": ["colors.css", "primitives.css", "typography.css", "index.css"],
   "main": "index.css",
