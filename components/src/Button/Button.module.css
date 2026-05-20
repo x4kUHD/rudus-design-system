@@ -17,20 +17,15 @@
 
 .ghost {
   background: transparent;
-  color: var(--text-primary);
-  border: 0.5px solid var(--border-default);
+  color: var(--text-secondary);
+  border: var(--border-width-thin) solid var(--border-default);
 }
 
 .button:disabled {
-  background: var(--bg-accent);
-  color: var(--text-disabled);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
   cursor: not-allowed;
   border-color: transparent;
-}
-
-.button:hover:not(:disabled) {
-  color: var(--text-primary);
-  background: var(--accent-solid);
 }
 
 .primary:hover:not(:disabled) {
@@ -40,6 +35,6 @@
 }
 
 .ghost:hover:not(:disabled) {
-  color: var(--text-primary);
-  background: var(--accent-solid);
+  background: var(--bg-elevated);
+  filter: brightness(1.1)
 }

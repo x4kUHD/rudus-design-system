@@ -8,19 +8,18 @@
     /* Background */
     --bg-base: #14130E;
     --bg-elevated: #2A2828;
-    --bg-accent: #242F25;
+    --bg-accent: #405041;
 
     /* Accent */
     --accent-solid: #74A67A;
     --accent-text: #A8C9AC;
-    --accent-bg: #242F25;
+    --accent-bg: #405041;
 
     /* Border */
     --border-subtle: #2B2B2B;
     --border-default: #666666;
 
     /* Semantic */
-    --error: #D77777;
     --error-bg: #1A1010;
     --warning: #C89A4A;
 }

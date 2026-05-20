@@ -16,6 +16,6 @@
     --radius-full: 9999px;
 
     /* Border Width */
-    --border-thin: 0.5px;
-    --border-default: 1px;
+    --border-width-thin: 0.5px;
+    --border-width-default: 1px;
 }

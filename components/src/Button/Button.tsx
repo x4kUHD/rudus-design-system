@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import styles from './Button.module.css';
+import type { ReactNode } from "react";
+import styles from "./Button.module.css";
 
-export type ButtonVariant = 'primary' | 'ghost';
+export type ButtonVariant = "primary" | "ghost";
 
 export interface ButtonProps {
   variant?: ButtonVariant;
@@ -11,12 +11,12 @@ export interface ButtonProps {
 }
 
 export function Button({
-  variant = 'primary',
+  variant = "primary",
   disabled = false,
   children,
   onClick,
 }: ButtonProps) {
-  const variantClass = variant === 'primary' ? styles.primary : styles.ghost;
+  const variantClass = variant === "primary" ? styles.primary : styles.ghost;
 
   return (
     <button
