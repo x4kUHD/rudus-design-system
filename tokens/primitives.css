@@ -1,0 +1,21 @@
+:root {
+    /* Spacing */
+    --space-0: 2px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+
+    /* Radius */
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+    --radius-full: 9999px;
+
+    /* Border Width */
+    --border-thin: 0.5px;
+    --border-default: 1px;
+}

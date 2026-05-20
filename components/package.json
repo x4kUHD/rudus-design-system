@@ -1,5 +1,5 @@
 {
-  "name": "@rudus/ui",
+  "name": "@eirocw/ui",
   "version": "0.1.0",
   "description": "React component library for Rudus",
   "main": "./dist/index.js",

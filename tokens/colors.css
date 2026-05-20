@@ -1,0 +1,26 @@
+:root {
+    /* Text */
+    --text-primary: #EAE9E9;
+    --text-secondary: #8E8E8E;
+    --text-tertiary: #6F6F6F;
+    --text-disabled: #424242;
+
+    /* Background */
+    --bg-base: #14130E;
+    --bg-elevated: #2A2828;
+    --bg-accent: #242F25;
+
+    /* Accent */
+    --accent-solid: #74A67A;
+    --accent-text: #A8C9AC;
+    --accent-bg: #242F25;
+
+    /* Border */
+    --border-subtle: #2B2B2B;
+    --border-default: #666666;
+
+    /* Semantic */
+    --error: #D77777;
+    --error-bg: #1A1010;
+    --warning: #C89A4A;
+}
