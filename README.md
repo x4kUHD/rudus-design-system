@@ -4,8 +4,6 @@ Design system for [Rudus](https://rudus.ai) — AI-powered preconstruction softw
 
 Built for estimators who spend their days in dense, data-heavy applications. Single dark theme, high information density, minimal chrome. Designed to feel familiar to users coming from legacy tools like On-Screen Takeoff and eTakeoff Dimension while introducing AI-native interaction patterns.
 
-![Design system overview](./preview.png)
-
 ---
 
 ## Packages
@@ -156,4 +154,4 @@ See [`/icons/index.html`](./icons/index.html) — interactive reference organize
 
 ---
 
-Built at [Rudus](https://rudus.ai) · YC X26
+Built at [Rudus](https://rudus.ai) · YC P26
