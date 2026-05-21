@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
-import styles from "./PanelHeader.module.css";
+import "./PanelHeader.css";
 
 export interface PanelHeaderProps {
   collapsed?: boolean;
@@ -30,17 +30,17 @@ export function PanelHeader({
   return (
     <button
       type="button"
-      className={`${styles.header} text-subheader`}
+      className="rudus-panel-header text-subheader"
       onClick={handleClick}
       aria-expanded={!current}
     >
       <IconChevronDown
         size={16}
         stroke={1}
-        className={`${styles.chevron} ${current ? styles.collapsed : ""}`}
+        className={`rudus-panel-chevron ${current ? "rudus-panel-collapsed" : ""}`}
       />
-      {icon && <span className={styles.icon}>{icon}</span>}
-      <span className={styles.label}>{children}</span>
+      {icon && <span className="rudus-panel-icon">{icon}</span>}
+      <span className="rudus-panel-label">{children}</span>
     </button>
   );
 }

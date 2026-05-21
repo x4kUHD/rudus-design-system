@@ -1,4 +1,4 @@
-.button {
+.rudus-button-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,17 +14,17 @@
   font-family: var(--font-sans);
 }
 
-.button:hover:not(:disabled):not(.selected) {
+.rudus-button-icon:hover:not(:disabled):not(.rudus-button-icon-selected) {
   background: var(--bg-elevated);
   color: var(--text-primary);
 }
 
-.selected {
+.rudus-button-icon-selected {
   background: var(--bg-accent);
   color: var(--accent-text);
 }
 
-.button:disabled {
+.rudus-button-icon:disabled {
   color: var(--text-disabled);
   cursor: not-allowed;
 }

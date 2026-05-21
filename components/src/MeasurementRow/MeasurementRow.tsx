@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
 import { ColorSwatch } from "../ColorSwatch/ColorSwatch";
-import styles from "./MeasurementRow.module.css";
+import "./MeasurementRow.css";
 
 export interface MeasurementRowProps {
   color?: string;
@@ -46,11 +46,11 @@ export function MeasurementRow({
   return (
     <>
       <div
-        className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
+        className={`rudus-measurement-row ${selected ? "rudus-measurement-row-selected" : ""} text-body`}
         onClick={onSelect}
       >
         <span
-          className={`${styles.chevron} ${current ? styles.collapsed : ""}`}
+          className={`rudus-measurement-chevron ${current ? "rudus-measurement-collapsed" : ""}`}
           onClick={handleChevron}
           role="button"
           aria-expanded={!current}
@@ -60,11 +60,11 @@ export function MeasurementRow({
         </span>
         <ColorSwatch color={color} variant="default" />
         <span
-          className={`${styles.label} ${isEmpty ? styles.placeholder : ""}`}
+          className={`rudus-measurement-label ${isEmpty ? "rudus-measurement-placeholder" : ""}`}
         >
           {display}
         </span>
-        {value && <span className={styles.value}>{value}</span>}
+        {value && <span className="rudus-measurement-value">{value}</span>}
       </div>
       {!current && children}
     </>

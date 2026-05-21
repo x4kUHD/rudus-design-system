@@ -1,4 +1,4 @@
-.ribbon {
+.rudus-ribbon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -10,18 +10,18 @@
   padding: 0;
 }
 
-.icon {
+.rudus-ribbon-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.label {
+.rudus-ribbon-label {
   display: inline-block;
 }
 
 /* primary: large, icon-forward square button */
-.primary {
+.rudus-ribbon-primary {
   flex-direction: column;
   width: 72px;
   height: 80px;
@@ -30,23 +30,23 @@
   gap: var(--space-2);
 }
 
-.primary .icon {
+.rudus-ribbon-primary .rudus-ribbon-icon {
   width: 32px;
   height: 32px;
 }
 
-.primary:hover:not(:disabled):not(.selected) {
+.rudus-ribbon-primary:hover:not(:disabled):not(.rudus-ribbon-selected) {
   border-color: var(--border-default);
   color: var(--text-secondary);
 }
 
-.primary.selected {
+.rudus-ribbon-primary.rudus-ribbon-selected {
   background: var(--bg-base);
   color: var(--text-primary);
 }
 
 /* secondary: small, inline icon + label pill */
-.secondary {
+.rudus-ribbon-secondary {
   width: 100px;
   height: 24px;
   padding: 0 var(--space-2);
@@ -55,22 +55,22 @@
   justify-content: flex-start;
 }
 
-.secondary .icon {
+.rudus-ribbon-secondary .rudus-ribbon-icon {
   width: 16px;
   height: 16px;
 }
 
-.secondary:hover:not(:disabled):not(.selected) {
+.rudus-ribbon-secondary:hover:not(:disabled):not(.rudus-ribbon-selected) {
   border-color: var(--border-default);
   color: var(--text-secondary);
 }
 
-.secondary.selected {
+.rudus-ribbon-secondary.rudus-ribbon-selected {
   background: var(--bg-base);
   color: var(--text-primary);
 }
 
-.ribbon:disabled {
+.rudus-ribbon:disabled {
   color: var(--text-disabled);
   cursor: not-allowed;
 }

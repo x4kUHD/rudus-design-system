@@ -1,4 +1,4 @@
-.container {
+.rudus-dropdown {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -9,16 +9,16 @@
   box-sizing: border-box;
 }
 
-.panel {
+.rudus-dropdown-panel {
   background: transparent;
   border-color: var(--border-default);
 }
 
-.ribbon {
+.rudus-dropdown-ribbon {
   background: var(--bg-elevated);
 }
 
-.select {
+.rudus-dropdown-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -33,11 +33,11 @@
   width: 100%;
 }
 
-.select::-ms-expand {
+.rudus-dropdown-select::-ms-expand {
   display: none;
 }
 
-.chevron {
+.rudus-dropdown-chevron {
   position: absolute;
   right: var(--space-2);
   top: 50%;
@@ -46,10 +46,10 @@
   pointer-events: none;
 }
 
-.disabled {
+.rudus-dropdown-disabled {
   opacity: 0.5;
 }
 
-.disabled .select {
+.rudus-dropdown-disabled .rudus-dropdown-select {
   cursor: not-allowed;
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IconExclamationCircle } from "@tabler/icons-react";
-import styles from "./InputBox.module.css";
+import "./InputBox.css";
 
 export interface InputBoxProps {
   value?: string | number;
@@ -33,19 +33,19 @@ export function InputBox({
 
   return (
     <div
-      className={`${styles.container} ${isError ? styles.error : ""} ${disabled ? styles.disabled : ""}`}
+      className={`rudus-input-box ${isError ? "rudus-input-box-error" : ""} ${disabled ? "rudus-input-box-disabled" : ""}`}
     >
-      <div className={styles.valueContainer}>
+      <div className="rudus-input-box-value">
         {isError && (
           <IconExclamationCircle
             size={16}
             stroke={1.5}
-            className={styles.errorIcon}
+            className="rudus-input-box-error-icon"
           />
         )}
         <input
           type="text"
-          className={`${styles.input} text-body`}
+          className="rudus-input-box-input text-body"
           value={current}
           onChange={(e) => update(e.target.value)}
           onFocus={() => setIsFocused(true)}
@@ -56,7 +56,7 @@ export function InputBox({
           aria-invalid={isError}
         />
       </div>
-      {unit && <span className={`${styles.unit} text-body`}>{unit}</span>}
+      {unit && <span className="rudus-input-box-unit text-body">{unit}</span>}
     </div>
   );
 }

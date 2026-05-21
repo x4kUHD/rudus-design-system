@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import styles from "./ButtonIcon.module.css";
+import "./ButtonIcon.css";
 
 export interface ButtonIconProps {
   icon: ReactNode;
@@ -19,7 +19,7 @@ export function ButtonIcon({
   return (
     <button
       type="button"
-      className={`${styles.button} ${selected ? styles.selected : ""}`}
+      className={`rudus-button-icon ${selected ? "rudus-button-icon-selected" : ""}`}
       disabled={disabled}
       onClick={onClick}
       aria-pressed={selected}

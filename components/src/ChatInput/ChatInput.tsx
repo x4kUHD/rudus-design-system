@@ -1,6 +1,6 @@
 import { useState, type KeyboardEvent } from "react";
 import { IconSend2 } from "@tabler/icons-react";
-import styles from "./ChatInput.module.css";
+import "./ChatInput.css";
 
 export interface ChatInputProps {
   value?: string;
@@ -43,9 +43,9 @@ export function ChatInput({
   const canSubmit = current.trim().length > 0 && !disabled;
 
   return (
-    <div className={styles.container}>
+    <div className="rudus-chat-input">
       <textarea
-        className={`${styles.textarea} text-body`}
+        className="rudus-chat-textarea text-body"
         value={current}
         onChange={(e) => update(e.target.value)}
         onKeyDown={handleKeyDown}
@@ -55,7 +55,7 @@ export function ChatInput({
       />
       <button
         type="button"
-        className={styles.sendButton}
+        className="rudus-chat-send-button"
         onClick={submit}
         disabled={!canSubmit}
         aria-label="Send"

@@ -1,4 +1,4 @@
-.container {
+.rudus-chat-input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 
-.textarea {
+.rudus-chat-textarea {
   flex: 1;
   background: transparent;
   border: none;
@@ -27,11 +27,11 @@
   overflow-y: auto;
 }
 
-.textarea::placeholder {
+.rudus-chat-textarea::placeholder {
   color: var(--text-tertiary);
 }
 
-.sendButton {
+.rudus-chat-send-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -46,12 +46,12 @@
   padding: 0;
 }
 
-.sendButton:hover:not(:disabled) {
+.rudus-chat-send-button:hover:not(:disabled) {
   background: var(--accent-solid);
   color: var(--text-primary);
 }
 
-.sendButton:disabled {
+.rudus-chat-send-button:disabled {
   background: var(--bg-elevated);
   color: var(--text-disabled);
   cursor: not-allowed;

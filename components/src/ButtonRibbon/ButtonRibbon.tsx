@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import styles from "./ButtonRibbon.module.css";
+import "./ButtonRibbon.css";
 
 export type ButtonRibbonVariant = "primary" | "secondary";
 
@@ -20,21 +20,18 @@ export function ButtonRibbon({
   disabled = false,
   onClick,
 }: ButtonRibbonProps) {
-  const variantClass =
-    variant === "primary" ? styles.primary : styles.secondary;
-
   return (
     <button
       type="button"
-      className={`${styles.ribbon} ${variantClass} ${selected ? styles.selected : ""} text-body`}
+      className={`rudus-ribbon rudus-ribbon-${variant} ${selected ? "rudus-ribbon-selected" : ""} text-body`}
       disabled={disabled}
       onClick={onClick}
       aria-pressed={selected}
     >
-      <span className={styles.icon}>{icon}</span>
+      <span className="rudus-ribbon-icon">{icon}</span>
       {children && (
         <span
-          className={`${styles.label} ${variant === "secondary" ? "text-body" : "text-tool"}`}
+          className={`rudus-ribbon-label ${variant === "secondary" ? "text-body" : "text-tool"}`}
         >
           {children}
         </span>

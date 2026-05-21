@@ -1,5 +1,5 @@
 import { ColorSwatch } from "../ColorSwatch/ColorSwatch";
-import styles from "./TraceRow.module.css";
+import "./TraceRow.css";
 
 export interface TraceRowProps {
   color?: string;
@@ -21,12 +21,12 @@ export function TraceRow({
 
   return (
     <div
-      className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
+      className={`rudus-trace-row ${selected ? "rudus-trace-row-selected" : ""} text-body`}
       onClick={onSelect}
     >
       <ColorSwatch color={color} variant="default" />
       <span
-        className={`${styles.label} ${isEmpty ? styles.placeholder : ""} text-body`}
+        className={`rudus-trace-label ${isEmpty ? "rudus-trace-placeholder" : ""} text-body`}
       >
         {display}
       </span>

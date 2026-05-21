@@ -1,36 +1,38 @@
-.header {
+.rudus-folder-row {
   display: flex;
   align-items: center;
   gap: var(--space-1);
   width: 100%;
   height: 32px;
-  padding: 0 var(--space-3);
-  background: transparent;
-  border: none;
+  padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-xl);
+  background: transparent;
   color: var(--text-primary);
   font-family: var(--font-sans);
   cursor: pointer;
-  text-align: left;
   box-sizing: border-box;
 }
 
-.header:hover {
+.rudus-folder-row:hover:not(.rudus-folder-row-selected) {
   background: var(--bg-elevated);
 }
 
-.chevron {
+.rudus-folder-row-selected {
+  background: var(--bg-accent);
+}
+
+.rudus-folder-chevron {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
   transition: transform 120ms ease;
 }
 
-.chevron.collapsed {
+.rudus-folder-chevron.rudus-folder-collapsed {
   transform: rotate(-90deg);
 }
 
-.icon {
+.rudus-folder-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +41,10 @@
   height: 16px;
 }
 
-.label {
+.rudus-folder-label {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

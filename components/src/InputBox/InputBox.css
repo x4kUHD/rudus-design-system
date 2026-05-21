@@ -1,4 +1,4 @@
-.container {
+.rudus-input-box {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -12,11 +12,11 @@
   box-sizing: border-box;
 }
 
-.container:focus-within {
+.rudus-input-box:focus-within {
   border-color: var(--accent-solid);
 }
 
-.valueContainer {
+.rudus-input-box-value {
   display: flex;
   align-items: center;
   flex: 1 0 0;
@@ -24,7 +24,7 @@
   gap: var(--space-1);
 }
 
-.input {
+.rudus-input-box-input {
   width: 100%;
   background: transparent;
   border: none;
@@ -34,36 +34,36 @@
   font-family: var(--font-sans);
 }
 
-.input::placeholder {
+.rudus-input-box-input::placeholder {
   color: var(--text-tertiary);
 }
 
-.unit {
+.rudus-input-box-unit {
   color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
-.error {
+.rudus-input-box-error {
   background: var(--error-bg);
   border-color: var(--error);
 }
 
-.error:focus-within {
+.rudus-input-box-error:focus-within {
   border-color: var(--error);
 }
 
-.errorIcon {
+.rudus-input-box-error-icon {
   color: var(--error);
   width: 16px;
   height: 16px;
   flex-shrink: 0;
 }
 
-.disabled {
+.rudus-input-box-disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.disabled .input {
+.rudus-input-box-disabled .rudus-input-box-input {
   cursor: not-allowed;
 }

@@ -1,6 +1,6 @@
 import type { MouseEvent, ReactNode } from "react";
 import { IconX } from "@tabler/icons-react";
-import styles from "./Tab.module.css";
+import "./Tab.css";
 
 export interface TabProps {
   active?: boolean;
@@ -27,16 +27,16 @@ export function Tab({
   return (
     <button
       type="button"
-      className={`${styles.tab} ${active ? styles.active : ""} text-body`}
+      className={`rudus-tab ${active ? "rudus-tab-active" : ""} text-body`}
       disabled={disabled}
       onClick={onClick}
       aria-pressed={active}
     >
-      {icon && <span className={styles.icon}>{icon}</span>}
-      <span className={styles.label}>{children}</span>
+      {icon && <span className="rudus-tab-icon">{icon}</span>}
+      <span className="rudus-tab-label">{children}</span>
       {onClose && (
         <span
-          className={styles.close}
+          className="rudus-tab-close"
           onClick={handleClose}
           role="button"
           aria-label="Close tab"

@@ -1,0 +1,63 @@
+.rudus-layer-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 32px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.rudus-layer-row:hover:not(.rudus-layer-row-selected) {
+  background: var(--bg-elevated);
+}
+
+.rudus-layer-row-selected {
+  background: var(--bg-accent);
+}
+
+.rudus-layer-row-selected .rudus-layer-label {
+  color: var(--accent-solid);
+}
+
+.rudus-layer-hidden {
+  color: var(--text-tertiary);
+}
+
+.rudus-layer-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rudus-layer-placeholder {
+  color: var(--text-tertiary);
+}
+
+.rudus-layer-eye {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--text-primary);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.rudus-layer-row:hover .rudus-layer-eye,
+.rudus-layer-hidden .rudus-layer-eye {
+  visibility: visible;
+}
+
+.rudus-layer-eye:hover {
+  color: var(--text-primary);
+}

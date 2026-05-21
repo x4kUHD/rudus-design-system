@@ -1,5 +1,5 @@
 import { IconChevronDown } from "@tabler/icons-react";
-import styles from "./Dropdown.module.css";
+import "./Dropdown.css";
 
 export type DropdownVariant = "panel" | "ribbon";
 
@@ -25,14 +25,12 @@ export function Dropdown({
   placeholder,
   disabled = false,
 }: DropdownProps) {
-  const variantClass = variant === "ribbon" ? styles.ribbon : styles.panel;
-
   return (
     <div
-      className={`${styles.container} ${variantClass} ${disabled ? styles.disabled : ""}`}
+      className={`rudus-dropdown rudus-dropdown-${variant} ${disabled ? "rudus-dropdown-disabled" : ""}`}
     >
       <select
-        className={`${styles.select} text-body`}
+        className="rudus-dropdown-select text-body"
         value={value ?? ""}
         onChange={(e) => onChange?.(e.target.value)}
         disabled={disabled}
@@ -51,7 +49,7 @@ export function Dropdown({
       <IconChevronDown
         size={16}
         stroke={1.5}
-        className={styles.chevron}
+        className="rudus-dropdown-chevron"
         aria-hidden
       />
     </div>

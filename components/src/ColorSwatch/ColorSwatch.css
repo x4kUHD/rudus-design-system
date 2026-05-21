@@ -1,4 +1,4 @@
-.swatch {
+.rudus-swatch {
   width: 16px;
   height: 16px;
   border-radius: var(--radius-sm);
@@ -6,16 +6,16 @@
   display: inline-block;
 }
 
-.default {
+.rudus-swatch-default {
   background: var(--accent-solid);
 }
 
-.border {
+.rudus-swatch-border {
   background: transparent;
   border-color: var(--accent-solid);
 }
 
-.disabled {
+.rudus-swatch-disabled {
   background: transparent;
   border-color: var(--border-subtle);
 }

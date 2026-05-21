@@ -1,4 +1,4 @@
-.tab {
+.rudus-tab {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -14,19 +14,19 @@
   flex-shrink: 0;
 }
 
-.tab:hover:not(:disabled):not(.active) {
+.rudus-tab:hover:not(:disabled):not(.rudus-tab-active) {
   background: var(--bg-elevated);
   border-color: var(--border-default);
   color: var(--text-primary);
 }
 
-.active {
+.rudus-tab-active {
   background: var(--bg-elevated);
   color: var(--text-primary);
 }
 
-.icon,
-.close {
+.rudus-tab-icon,
+.rudus-tab-close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -35,18 +35,18 @@
   height: 16px;
 }
 
-.close {
+.rudus-tab-close {
   color: var(--text-tertiary);
   cursor: pointer;
   border-radius: var(--radius-sm);
 }
 
-.close:hover {
+.rudus-tab-close:hover {
   color: var(--text-primary);
   background: var(--bg-hover);
 }
 
-.tab:disabled {
+.rudus-tab:disabled {
   color: var(--text-disabled);
   cursor: not-allowed;
 }

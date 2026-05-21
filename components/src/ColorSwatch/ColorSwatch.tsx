@@ -1,4 +1,4 @@
-import styles from "./ColorSwatch.module.css";
+import "./ColorSwatch.css";
 
 export type ColorSwatchVariant = "default" | "border" | "disabled";
 
@@ -8,13 +8,6 @@ export interface ColorSwatchProps {
 }
 
 export function ColorSwatch({ color, variant = "default" }: ColorSwatchProps) {
-  const variantClass =
-    variant === "border"
-      ? styles.border
-      : variant === "disabled"
-        ? styles.disabled
-        : styles.default;
-
   const style = color
     ? variant === "border"
       ? { borderColor: color }
@@ -23,5 +16,10 @@ export function ColorSwatch({ color, variant = "default" }: ColorSwatchProps) {
         : undefined
     : undefined;
 
-  return <div className={`${styles.swatch} ${variantClass}`} style={style} />;
+  return (
+    <div
+      className={`rudus-swatch rudus-swatch-${variant}`}
+      style={style}
+    />
+  );
 }

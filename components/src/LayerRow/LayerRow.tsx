@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react";
 import { IconEye, IconEyeClosed } from "@tabler/icons-react";
-import styles from "./LayerRow.module.css";
+import "./LayerRow.css";
 
 export interface LayerRowProps {
   label?: string;
@@ -29,16 +29,16 @@ export function LayerRow({
 
   return (
     <div
-      className={`${styles.row} ${selected ? styles.selected : ""} ${hidden ? styles.hidden : ""} text-body`}
+      className={`rudus-layer-row ${selected ? "rudus-layer-row-selected" : ""} ${hidden ? "rudus-layer-hidden" : ""} text-body`}
       onClick={onSelect}
     >
       <span
-        className={`${styles.label} ${isEmpty ? styles.placeholder : ""} text-body`}
+        className={`rudus-layer-label ${isEmpty ? "rudus-layer-placeholder" : ""} text-body`}
       >
         {display}
       </span>
       <span
-        className={styles.eye}
+        className="rudus-layer-eye"
         onClick={handleToggle}
         role="button"
         aria-label={hidden ? "Show layer" : "Hide layer"}

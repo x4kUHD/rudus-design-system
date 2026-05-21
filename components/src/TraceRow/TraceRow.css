@@ -1,10 +1,10 @@
-.row {
+.rudus-trace-row {
   display: flex;
   align-items: center;
   gap: var(--space-1);
   width: 100%;
   height: 32px;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6);
   border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-primary);
@@ -13,38 +13,28 @@
   box-sizing: border-box;
 }
 
-.row:hover:not(.selected) {
+.rudus-trace-row:hover:not(.rudus-trace-row-selected) {
   background: var(--bg-elevated);
 }
 
-.selected {
+.rudus-trace-row-selected {
   background: var(--bg-accent);
 }
 
-.chevron {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  transition: transform 120ms ease;
+.rudus-trace-row-selected .rudus-trace-label {
+  color: var(--accent-solid);
 }
 
-.chevron.collapsed {
-  transform: rotate(-90deg);
-}
-
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-}
-
-.label {
+.rudus-trace-label {
   flex: 1;
   min-width: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.rudus-trace-placeholder {
+  color: var(--text-tertiary);
 }

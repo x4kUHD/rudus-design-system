@@ -1,4 +1,4 @@
-.row {
+.rudus-measurement-row {
   display: flex;
   align-items: center;
   gap: var(--space-1);
@@ -13,15 +13,19 @@
   box-sizing: border-box;
 }
 
-.row:hover:not(.selected) {
+.rudus-measurement-row:hover:not(.rudus-measurement-row-selected) {
   background: var(--bg-elevated);
 }
 
-.selected {
+.rudus-measurement-row-selected {
   background: var(--bg-accent);
 }
 
-.chevron {
+.rudus-measurement-row-selected .rudus-measurement-label {
+  color: var(--accent-solid);
+}
+
+.rudus-measurement-chevron {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -33,11 +37,11 @@
   cursor: pointer;
 }
 
-.chevron.collapsed {
+.rudus-measurement-chevron.rudus-measurement-collapsed {
   transform: rotate(-90deg);
 }
 
-.label {
+.rudus-measurement-label {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -46,15 +50,15 @@
   padding-left: var(--space-1);
 }
 
-.placeholder {
+.rudus-measurement-placeholder {
   color: var(--text-tertiary);
 }
 
-.value {
+.rudus-measurement-value {
   flex-shrink: 0;
   color: var(--text-tertiary);
 }
 
-.selected .value {
+.rudus-measurement-row-selected .rudus-measurement-value {
   color: var(--text-primary);
 }

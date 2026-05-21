@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./PageRow.module.css";
+import "./PageRow.css";
 
 export interface PageRowProps {
   pageNumber: number;
@@ -29,13 +29,13 @@ export function PageRow({
 
   return (
     <div
-      className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
+      className={`rudus-page-row ${selected ? "rudus-page-row-selected" : ""} text-body`}
       onClick={onSelect}
     >
-      <span className={styles.number}>{pageNumber}</span>
+      <span className="rudus-page-number">{pageNumber}</span>
       <input
         type="text"
-        className={`${styles.input} text-body`}
+        className="rudus-page-input text-body"
         value={current}
         onChange={(e) => update(e.target.value)}
         onFocus={onSelect}

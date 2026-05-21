@@ -1,4 +1,4 @@
-import styles from "./SubMeasurementRow.module.css";
+import "./SubMeasurementRow.css";
 
 export interface SubMeasurementRowProps {
   label?: string;
@@ -20,13 +20,15 @@ export function SubMeasurementRow({
 
   return (
     <div
-      className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
+      className={`rudus-sub-measurement-row ${selected ? "rudus-sub-measurement-row-selected" : ""} text-body`}
       onClick={onSelect}
     >
-      <span className={`${styles.label} ${isEmpty ? styles.placeholder : ""}`}>
+      <span
+        className={`rudus-sub-measurement-label ${isEmpty ? "rudus-sub-measurement-placeholder" : ""}`}
+      >
         {display}
       </span>
-      {value && <span className={styles.value}>{value}</span>}
+      {value && <span className="rudus-sub-measurement-value">{value}</span>}
     </div>
   );
 }

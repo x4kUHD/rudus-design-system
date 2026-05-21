@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { IconChevronDown, IconFolder } from "@tabler/icons-react";
-import styles from "./FolderRow.module.css";
+import "./FolderRow.css";
 
 export interface FolderRowProps {
   collapsed?: boolean;
@@ -34,7 +34,7 @@ export function FolderRow({
 
   return (
     <div
-      className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
+      className={`rudus-folder-row ${selected ? "rudus-folder-row-selected" : ""} text-body`}
       onClick={handleClick}
       role="button"
       aria-expanded={!current}
@@ -42,12 +42,12 @@ export function FolderRow({
       <IconChevronDown
         size={16}
         stroke={1}
-        className={`${styles.chevron} ${current ? styles.collapsed : ""}`}
+        className={`rudus-folder-chevron ${current ? "rudus-folder-collapsed" : ""}`}
       />
-      <span className={styles.icon}>
+      <span className="rudus-folder-icon">
         {icon ?? <IconFolder size={16} stroke={1} />}
       </span>
-      <span className={styles.label}>{children}</span>
+      <span className="rudus-folder-label">{children}</span>
     </div>
   );
 }
