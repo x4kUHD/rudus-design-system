@@ -1,4 +1,4 @@
-# Rudus Design System
+# Rudus Design System 1.0
 
 Design system for [Rudus](https://rudus.ai) — AI-powered preconstruction software for structural concrete subcontractors.
 
