@@ -1,3 +1,4 @@
+import { forwardRef, type HTMLAttributes } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
 import "./Dropdown.css";
 
@@ -8,7 +9,7 @@ export interface DropdownOption {
   label: string;
 }
 
-export interface DropdownProps {
+export interface DropdownProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
   variant?: DropdownVariant;
   value?: string;
   onChange?: (value: string) => void;
@@ -17,17 +18,24 @@ export interface DropdownProps {
   disabled?: boolean;
 }
 
-export function Dropdown({
-  variant = "panel",
-  value,
-  onChange,
-  options,
-  placeholder,
-  disabled = false,
-}: DropdownProps) {
-  return (
+export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
+  (
+    {
+      variant = "panel",
+      value,
+      onChange,
+      options,
+      placeholder,
+      disabled = false,
+      className,
+      ...rest
+    },
+    ref
+  ) => (
     <div
-      className={`rudus-dropdown rudus-dropdown-${variant} ${disabled ? "rudus-dropdown-disabled" : ""}`}
+      ref={ref}
+      className={`rudus-dropdown rudus-dropdown-${variant} ${disabled ? "rudus-dropdown-disabled" : ""}${className ? ` ${className}` : ""}`}
+      {...rest}
     >
       <select
         className="rudus-dropdown-select text-body"
@@ -53,5 +61,6 @@ export function Dropdown({
         aria-hidden
       />
     </div>
-  );
-}
+  )
+);
+Dropdown.displayName = "Dropdown";

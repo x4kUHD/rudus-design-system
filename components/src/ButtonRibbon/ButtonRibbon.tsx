@@ -1,32 +1,26 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import "./ButtonRibbon.css";
 
 export type ButtonRibbonVariant = "primary" | "secondary";
 
-export interface ButtonRibbonProps {
+export interface ButtonRibbonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonRibbonVariant;
   icon: ReactNode;
   children?: ReactNode;
   selected?: boolean;
-  disabled?: boolean;
-  onClick?: () => void;
 }
 
-export function ButtonRibbon({
-  variant = "primary",
-  icon,
-  children,
-  selected = false,
-  disabled = false,
-  onClick,
-}: ButtonRibbonProps) {
-  return (
+export const ButtonRibbon = forwardRef<HTMLButtonElement, ButtonRibbonProps>(
+  (
+    { variant = "primary", icon, children, selected = false, className, type = "button", ...rest },
+    ref
+  ) => (
     <button
-      type="button"
-      className={`rudus-ribbon rudus-ribbon-${variant} ${selected ? "rudus-ribbon-selected" : ""} text-body`}
-      disabled={disabled}
-      onClick={onClick}
+      ref={ref}
+      type={type}
+      className={`rudus-ribbon rudus-ribbon-${variant} ${selected ? "rudus-ribbon-selected" : ""} text-body${className ? ` ${className}` : ""}`}
       aria-pressed={selected}
+      {...rest}
     >
       <span className="rudus-ribbon-icon">{icon}</span>
       {children && (
@@ -37,5 +31,6 @@ export function ButtonRibbon({
         </span>
       )}
     </button>
-  );
-}
+  )
+);
+ButtonRibbon.displayName = "ButtonRibbon";

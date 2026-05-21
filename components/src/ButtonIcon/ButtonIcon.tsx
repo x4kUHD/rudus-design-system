@@ -1,31 +1,24 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import "./ButtonIcon.css";
 
-export interface ButtonIconProps {
+export interface ButtonIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
   selected?: boolean;
-  disabled?: boolean;
-  onClick?: () => void;
   ariaLabel: string;
 }
 
-export function ButtonIcon({
-  icon,
-  selected = false,
-  disabled = false,
-  onClick,
-  ariaLabel,
-}: ButtonIconProps) {
-  return (
+export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
+  ({ icon, selected = false, ariaLabel, className, type = "button", ...rest }, ref) => (
     <button
-      type="button"
-      className={`rudus-button-icon ${selected ? "rudus-button-icon-selected" : ""}`}
-      disabled={disabled}
-      onClick={onClick}
+      ref={ref}
+      type={type}
+      className={`rudus-button-icon ${selected ? "rudus-button-icon-selected" : ""}${className ? ` ${className}` : ""}`}
       aria-pressed={selected}
       aria-label={ariaLabel}
+      {...rest}
     >
       {icon}
     </button>
-  );
-}
+  )
+);
+ButtonIcon.displayName = "ButtonIcon";

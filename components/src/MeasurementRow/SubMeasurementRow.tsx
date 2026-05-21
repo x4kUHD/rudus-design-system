@@ -1,6 +1,7 @@
+import { forwardRef, type HTMLAttributes } from "react";
 import "./SubMeasurementRow.css";
 
-export interface SubMeasurementRowProps {
+export interface SubMeasurementRowProps extends HTMLAttributes<HTMLDivElement> {
   label?: string;
   placeholder?: string;
   value?: string;
@@ -8,27 +9,29 @@ export interface SubMeasurementRowProps {
   onSelect?: () => void;
 }
 
-export function SubMeasurementRow({
-  label,
-  placeholder = "Untitled",
-  value,
-  selected = false,
-  onSelect,
-}: SubMeasurementRowProps) {
-  const isEmpty = !label;
-  const display = isEmpty ? placeholder : label;
+export const SubMeasurementRow = forwardRef<HTMLDivElement, SubMeasurementRowProps>(
+  (
+    { label, placeholder = "Untitled", value, selected = false, onSelect, className, ...rest },
+    ref
+  ) => {
+    const isEmpty = !label;
+    const display = isEmpty ? placeholder : label;
 
-  return (
-    <div
-      className={`rudus-sub-measurement-row ${selected ? "rudus-sub-measurement-row-selected" : ""} text-body`}
-      onClick={onSelect}
-    >
-      <span
-        className={`rudus-sub-measurement-label ${isEmpty ? "rudus-sub-measurement-placeholder" : ""}`}
+    return (
+      <div
+        ref={ref}
+        className={`rudus-sub-measurement-row ${selected ? "rudus-sub-measurement-row-selected" : ""} text-body${className ? ` ${className}` : ""}`}
+        onClick={onSelect}
+        {...rest}
       >
-        {display}
-      </span>
-      {value && <span className="rudus-sub-measurement-value">{value}</span>}
-    </div>
-  );
-}
+        <span
+          className={`rudus-sub-measurement-label ${isEmpty ? "rudus-sub-measurement-placeholder" : ""}`}
+        >
+          {display}
+        </span>
+        {value && <span className="rudus-sub-measurement-value">{value}</span>}
+      </div>
+    );
+  }
+);
+SubMeasurementRow.displayName = "SubMeasurementRow";
