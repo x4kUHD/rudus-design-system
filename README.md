@@ -13,7 +13,7 @@ Figma: https://www.figma.com/design/eQqqvXnMoJuTn1JdEADpzi/Rudus?node-id=169-849
 | Package                      | Description                                                 | Version |
 | ---------------------------- | ----------------------------------------------------------- | ------- |
 | [`@eirocw/tokens`](./tokens) | CSS custom properties — colors, spacing, typography, radius | `0.1.4` |
-| [`@eirocw/ui`](./components) | React component library                                     | `0.1.0` |
+| [`@eirocw/ui`](./components) | React component library                                     | `0.1.3` |
 
 A live preview of every component lives in [`components/sandbox`](./components/sandbox).
 
@@ -39,6 +39,13 @@ Or import individual token files:
 
 ```tsx
 import { Button, ChatInput, MeasurementRow } from "@eirocw/ui";
+import "@eirocw/ui/dist/index.css";
+```
+
+Components ship plain global CSS — no CSS Modules, no runtime style injection. Every class is prefixed with `rudus-` and namespaced by component (e.g. `rudus-button`, `rudus-folder-row`, `rudus-measurement-row-selected`), so you can override styles by targeting the class directly:
+
+```css
+.rudus-button { border-radius: 0; }
 ```
 
 ---
