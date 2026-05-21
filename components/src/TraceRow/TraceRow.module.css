@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: 100%;
+  height: 32px;
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.row:hover:not(.selected) {
+  background: var(--bg-elevated);
+}
+
+.selected {
+  background: var(--bg-accent);
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  color: var(--text-tertiary);
+}

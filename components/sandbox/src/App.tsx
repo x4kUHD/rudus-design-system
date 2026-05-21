@@ -4,6 +4,7 @@ import {
   IconZoom,
   IconLayoutSidebar,
   IconLayoutSidebarRightCollapse,
+  IconFolderFilled,
 } from "@tabler/icons-react";
 import { Button } from "../../src/Button/Button";
 import { ColorSwatch } from "../../src/ColorSwatch/ColorSwatch";
@@ -14,7 +15,33 @@ import { Dropdown } from "../../src/Dropdown/Dropdown";
 import { Tab } from "../../src/Tab/Tab";
 import { PanelHeader } from "../../src/PanelHeader/PanelHeader";
 import { PageRow } from "../../src/PageRow/PageRow";
+import { TraceRow } from "../../src/TraceRow/TraceRow";
+import { FolderRow } from "../../src/FolderRow/FolderRow";
+import { LayerRow } from "../../src/LayerRow/LayerRow";
 import "./App.css";
+
+function LayerRowDemo() {
+  const [selected, setSelected] = useState(3);
+  const [hidden, setHidden] = useState<Record<number, boolean>>({ 2: true });
+  const layers = ["Default", "Hidden", "Selected"];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      {layers.map((name, i) => (
+        <LayerRow
+          key={i}
+          label={name}
+          selected={selected === i + 1}
+          onSelect={() => setSelected(i + 1)}
+          hidden={!!hidden[i + 1]}
+          onToggleHidden={() =>
+            setHidden((prev) => ({ ...prev, [i + 1]: !prev[i + 1] }))
+          }
+        />
+      ))}
+    </div>
+  );
+}
 
 function Card({
   title,
@@ -43,6 +70,9 @@ export default function App() {
     "Hover",
     "Selected",
   ]);
+  const [selectedTrace, setSelectedTrace] = useState(2);
+  const traceNames = ["Default", "Hover", "Selected"];
+  const [folderCollapsed, setFolderCollapsed] = useState(false);
 
   return (
     <div className="sandbox">
@@ -105,13 +135,13 @@ export default function App() {
               <div className="row">
                 <ButtonRibbon
                   variant="primary"
-                  icon={<IconFolder size={32} stroke={1.5} />}
+                  icon={<IconFolder size={32} stroke={1} />}
                 >
                   Primary
                 </ButtonRibbon>
                 <ButtonRibbon
                   variant="primary"
-                  icon={<IconFolder size={32} stroke={1.5} />}
+                  icon={<IconFolder size={32} stroke={1} />}
                   selected
                 >
                   Selected
@@ -125,13 +155,13 @@ export default function App() {
               <div className="row">
                 <ButtonRibbon
                   variant="secondary"
-                  icon={<IconZoom size={16} stroke={1.5} />}
+                  icon={<IconZoom size={16} stroke={1} />}
                 >
                   Primary
                 </ButtonRibbon>
                 <ButtonRibbon
                   variant="secondary"
-                  icon={<IconZoom size={16} stroke={1.5} />}
+                  icon={<IconZoom size={16} stroke={1} />}
                   selected
                 >
                   OnClick
@@ -162,6 +192,31 @@ export default function App() {
           </div>
         </Card>
 
+        <Card title="TRACE ROW">
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <FolderRow
+              collapsed={folderCollapsed}
+              onToggle={setFolderCollapsed}
+            >
+              Folder
+            </FolderRow>
+            {!folderCollapsed &&
+              traceNames.map((name, i) => (
+                <TraceRow
+                  key={i}
+                  color="var(--accent-solid)"
+                  label={name}
+                  selected={selectedTrace === i + 1}
+                  onSelect={() => setSelectedTrace(i + 1)}
+                />
+              ))}
+          </div>
+        </Card>
+
+        <Card title="LAYER ROW">
+          <LayerRowDemo />
+        </Card>
+
         <Card title="PANEL HEADER">
           <div className="stack-lg">
             <PanelHeader>Default</PanelHeader>
@@ -175,12 +230,10 @@ export default function App() {
               Active Tab
             </Tab>
             <Tab onClose={() => {}}>Inactive Tab</Tab>
-            <Tab icon={<IconLayoutSidebar size={16} stroke={1.5} />}>
+            <Tab icon={<IconLayoutSidebar size={16} stroke={1} />}>
               Split View
             </Tab>
-            <Tab
-              icon={<IconLayoutSidebarRightCollapse size={16} stroke={1.5} />}
-            >
+            <Tab icon={<IconLayoutSidebarRightCollapse size={16} stroke={1} />}>
               Close Panels
             </Tab>
           </div>

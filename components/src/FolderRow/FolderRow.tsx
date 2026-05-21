@@ -1,22 +1,26 @@
 import { useState, type ReactNode } from "react";
-import { IconChevronDown } from "@tabler/icons-react";
-import styles from "./PanelHeader.module.css";
+import { IconChevronDown, IconFolder } from "@tabler/icons-react";
+import styles from "./FolderRow.module.css";
 
-export interface PanelHeaderProps {
+export interface FolderRowProps {
   collapsed?: boolean;
   defaultCollapsed?: boolean;
   onToggle?: (collapsed: boolean) => void;
   icon?: ReactNode;
+  selected?: boolean;
+  onSelect?: () => void;
   children: ReactNode;
 }
 
-export function PanelHeader({
+export function FolderRow({
   collapsed,
   defaultCollapsed = false,
   onToggle,
   icon,
+  selected = false,
+  onSelect,
   children,
-}: PanelHeaderProps) {
+}: FolderRowProps) {
   const isControlled = collapsed !== undefined;
   const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed);
   const current = isControlled ? collapsed : internalCollapsed;
@@ -25,13 +29,14 @@ export function PanelHeader({
     const next = !current;
     if (!isControlled) setInternalCollapsed(next);
     onToggle?.(next);
+    onSelect?.();
   };
 
   return (
-    <button
-      type="button"
-      className={`${styles.header} text-subheader`}
+    <div
+      className={`${styles.row} ${selected ? styles.selected : ""} text-body`}
       onClick={handleClick}
+      role="button"
       aria-expanded={!current}
     >
       <IconChevronDown
@@ -39,8 +44,10 @@ export function PanelHeader({
         stroke={1}
         className={`${styles.chevron} ${current ? styles.collapsed : ""}`}
       />
-      {icon && <span className={styles.icon}>{icon}</span>}
+      <span className={styles.icon}>
+        {icon ?? <IconFolder size={16} stroke={1} />}
+      </span>
       <span className={styles.label}>{children}</span>
-    </button>
+    </div>
   );
 }
