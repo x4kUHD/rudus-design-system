@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import styles from "./Button.module.css";
+import "./Button.css";
 
 export type ButtonVariant = "primary" | "ghost";
 
@@ -16,12 +16,10 @@ export function Button({
   children,
   onClick,
 }: ButtonProps) {
-  const variantClass = variant === "primary" ? styles.primary : styles.ghost;
-
   return (
     <button
       type="button"
-      className={`${styles.button} ${variantClass} text-body`}
+      className={`rudus-button rudus-${variant} text-body`}
       disabled={disabled}
       onClick={onClick}
     >
