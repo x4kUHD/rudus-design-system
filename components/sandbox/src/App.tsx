@@ -174,7 +174,7 @@ export default function App() {
               </div>
             </div>
             <div>
-              <InputBox unit="in" variant="error" />
+              <InputBox unit="in" required />
               <div className="text-caption token-meta group-heading">
                 Required
               </div>

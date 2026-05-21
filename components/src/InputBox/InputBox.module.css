@@ -21,6 +21,7 @@
   align-items: center;
   flex: 1 0 0;
   min-width: 0;
+  gap: var(--space-1);
 }
 
 .input {
@@ -53,6 +54,9 @@
 
 .errorIcon {
   color: var(--error);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .disabled {

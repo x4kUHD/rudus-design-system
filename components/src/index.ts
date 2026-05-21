@@ -5,7 +5,7 @@ export type { ColorSwatchProps, ColorSwatchVariant } from './ColorSwatch/ColorSw
 export { ButtonRibbon } from './ButtonRibbon/ButtonRibbon'
 export type { ButtonRibbonProps, ButtonRibbonVariant } from './ButtonRibbon/ButtonRibbon'
 export { InputBox } from './InputBox/InputBox'
-export type { InputBoxProps, InputBoxVariant } from './InputBox/InputBox'
+export type { InputBoxProps } from './InputBox/InputBox'
 export { ChatInput } from './ChatInput/ChatInput'
 export type { ChatInputProps } from './ChatInput/ChatInput'
 export { Dropdown } from './Dropdown/Dropdown'
