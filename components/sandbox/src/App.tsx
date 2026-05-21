@@ -1,11 +1,19 @@
 import { useState } from "react";
-import { IconFolder, IconZoom } from "@tabler/icons-react";
+import {
+  IconFolder,
+  IconZoom,
+  IconLayoutSidebar,
+  IconLayoutSidebarRightCollapse,
+} from "@tabler/icons-react";
 import { Button } from "../../src/Button/Button";
 import { ColorSwatch } from "../../src/ColorSwatch/ColorSwatch";
 import { ButtonRibbon } from "../../src/ButtonRibbon/ButtonRibbon";
 import { InputBox } from "../../src/InputBox/InputBox";
 import { ChatInput } from "../../src/ChatInput/ChatInput";
 import { Dropdown } from "../../src/Dropdown/Dropdown";
+import { Tab } from "../../src/Tab/Tab";
+import { PanelHeader } from "../../src/PanelHeader/PanelHeader";
+import { PageRow } from "../../src/PageRow/PageRow";
 import "./App.css";
 
 function Card({
@@ -27,16 +35,17 @@ function Card({
 
 export default function App() {
   const [defaultValue, setDefaultValue] = useState("67");
-  const [focusedValue, setFocusedValue] = useState("67");
   const [panelValue, setPanelValue] = useState("panel");
   const [ribbonValue, setRibbonValue] = useState("ribbon");
+  const [selectedPage, setSelectedPage] = useState(3);
+  const [pageNames, setPageNames] = useState([
+    "Not Selected",
+    "Hover",
+    "Selected",
+  ]);
 
   return (
     <div className="sandbox">
-      <header className="sandbox-header">
-        <div className="text-display">Rudus Design System</div>
-      </header>
-
       <div className="column">
         <Card title="COLOR SWATCH">
           <div className="row">
@@ -134,6 +143,47 @@ export default function App() {
 
         <Card title="CHAT INPUT">
           <ChatInput onSubmit={(v) => console.log("submitted:", v)} />
+        </Card>
+
+        <Card title="PAGE ROW">
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            {pageNames.map((name, i) => (
+              <PageRow
+                key={i}
+                pageNumber={i + 1}
+                value={name}
+                onChange={(v) =>
+                  setPageNames((prev) => prev.map((p, j) => (j === i ? v : p)))
+                }
+                selected={selectedPage === i + 1}
+                onSelect={() => setSelectedPage(i + 1)}
+              />
+            ))}
+          </div>
+        </Card>
+
+        <Card title="PANEL HEADER">
+          <div className="stack-lg">
+            <PanelHeader>Default</PanelHeader>
+            <PanelHeader defaultCollapsed>Collapsed</PanelHeader>
+          </div>
+        </Card>
+
+        <Card title="TAB">
+          <div style={{ display: "inline-flex", gap: 0 }}>
+            <Tab active onClose={() => {}}>
+              Active Tab
+            </Tab>
+            <Tab onClose={() => {}}>Inactive Tab</Tab>
+            <Tab icon={<IconLayoutSidebar size={16} stroke={1.5} />}>
+              Split View
+            </Tab>
+            <Tab
+              icon={<IconLayoutSidebarRightCollapse size={16} stroke={1.5} />}
+            >
+              Close Panels
+            </Tab>
+          </div>
         </Card>
 
         <Card title="DROPDOWN">
