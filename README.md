@@ -4,33 +4,41 @@ Design system for [Rudus](https://rudus.ai) — AI-powered preconstruction softw
 
 Built for estimators who spend their days in dense, data-heavy applications. Single dark theme, high information density, minimal chrome. Designed to feel familiar to users coming from legacy tools like On-Screen Takeoff and eTakeoff Dimension while introducing AI-native interaction patterns.
 
+Figma: https://www.figma.com/design/eQqqvXnMoJuTn1JdEADpzi/Rudus?node-id=169-849&t=ilPI5G3VwNW2vilh-1
+
 ---
 
 ## Packages
 
-| Package                              | Description                                                 | Version     |
-| ------------------------------------ | ----------------------------------------------------------- | ----------- |
-| [`@rudus/tokens`](./packages/tokens) | CSS custom properties — colors, spacing, typography, radius | `0.1.0`     |
-| [`@rudus/ui`](./packages/ui)         | React component library                                     | coming soon |
+| Package                      | Description                                                 | Version |
+| ---------------------------- | ----------------------------------------------------------- | ------- |
+| [`@eirocw/tokens`](./tokens) | CSS custom properties — colors, spacing, typography, radius | `0.1.4` |
+| [`@eirocw/ui`](./components) | React component library                                     | `0.1.0` |
+
+A live preview of every component lives in [`components/sandbox`](./components/sandbox).
 
 ---
 
 ## Getting started
 
 ```bash
-npm install @rudus/tokens
+npm install @eirocw/tokens @eirocw/ui
 ```
 
 ```css
-@import "@rudus/tokens";
+@import "@eirocw/tokens";
 ```
 
-Or import individual files:
+Or import individual token files:
 
 ```css
-@import "@rudus/tokens/colors.css";
-@import "@rudus/tokens/primitives.css";
-@import "@rudus/tokens/typography.css";
+@import "@eirocw/tokens/colors.css";
+@import "@eirocw/tokens/primitives.css";
+@import "@eirocw/tokens/typography.css";
+```
+
+```tsx
+import { Button, ChatInput, MeasurementRow } from "@eirocw/ui";
 ```
 
 ---
@@ -106,22 +114,25 @@ Single typeface: **Inter**. Six roles named by function, not size.
 
 ## Components
 
-11 atom components with full state coverage. See the [interactive reference](./components/atoms.html).
+Live previews of every component (and state) are wired up in [`components/sandbox`](./components/sandbox) — run it locally with `npm --workspace sandbox run dev`.
 
-| Component       | States                                   |
-| --------------- | ---------------------------------------- |
-| Color swatch    | Default, border, disabled                |
-| Button          | Primary, hover, disabled, ghost          |
-| Input           | Default, focused, error, read-only       |
-| Dropdown        | Panel variant, ribbon variant            |
-| Button — ribbon | Primary, hover, selected (large + small) |
-| Tab             | Active, hover, inactive                  |
-| Panel header    | Default, hover, collapsed                |
-| Page row        | Default, hover, active                   |
-| Trace row       | Default, hover, selected                 |
-| Layer row       | Default, hover, closed, selected         |
-| Measurement row | Collapsed, expanded, child               |
-| Panel           | Composed                                 |
+| Component           | Description                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------- |
+| `Button`            | Primary, ghost, disabled                                                           |
+| `ButtonIcon`        | 36×36 icon-only button — default, hover, selected, disabled                        |
+| `ButtonRibbon`      | Ribbon toolbar button — primary (large stacked) and secondary (inline)             |
+| `ColorSwatch`       | Default (filled), border (outline), disabled — `color` prop drives fill            |
+| `InputBox`          | 32px fixed-height input with optional unit and auto error-on-required              |
+| `ChatInput`         | Auto-grow textarea with send button, Enter to submit                               |
+| `Dropdown`          | Native `<select>` styled to design — panel (outlined) and ribbon (filled) variants |
+| `Tab`               | Tab strip item — active, hover, inactive, plus icon-only tab buttons               |
+| `PanelHeader`       | Top-level collapsible panel header (bold, `text-subheader`)                        |
+| `FolderRow`         | Nested collapsible folder row (regular weight, sits inside a panel)                |
+| `PageRow`           | Numbered, editable row with selected state                                         |
+| `TraceRow`          | Color-swatch row with label, used inside a folder/panel                            |
+| `LayerRow`          | Row with hover-revealed visibility toggle, hidden + selected states                |
+| `MeasurementRow`    | Collapsible measurement row with color swatch, label, and trailing value           |
+| `SubMeasurementRow` | Indented child of `MeasurementRow`                                                 |
 
 ---
 
