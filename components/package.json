@@ -20,5 +20,8 @@
     "tsup": "^8.5.1",
     "typescript": "^5.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@tabler/icons-react": "^3.44.0"
+  }
 }

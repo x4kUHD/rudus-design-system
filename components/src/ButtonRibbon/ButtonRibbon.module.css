@@ -1,0 +1,76 @@
+.ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  border: var(--border-width-thin) solid transparent;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  display: inline-block;
+}
+
+/* primary: large, icon-forward square button */
+.primary {
+  flex-direction: column;
+  width: 72px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-2);
+  gap: var(--space-2);
+}
+
+.primary .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.primary:hover:not(:disabled):not(.selected) {
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.primary.selected {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* secondary: small, inline icon + label pill */
+.secondary {
+  width: 100px;
+  height: 24px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-lg);
+  gap: var(--space-1);
+  justify-content: flex-start;
+}
+
+.secondary .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.secondary:hover:not(:disabled):not(.selected) {
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.secondary.selected {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+.ribbon:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}

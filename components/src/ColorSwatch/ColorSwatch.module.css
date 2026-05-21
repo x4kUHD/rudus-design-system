@@ -1,0 +1,21 @@
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+  border: var(--border-width-thin) solid transparent;
+  display: inline-block;
+}
+
+.default {
+  background: var(--accent-solid);
+}
+
+.border {
+  background: transparent;
+  border-color: var(--accent-solid);
+}
+
+.disabled {
+  background: transparent;
+  border-color: var(--border-subtle);
+}
