@@ -4,11 +4,13 @@ import {
   IconZoom,
   IconLayoutSidebar,
   IconLayoutSidebarRightCollapse,
-  IconFolderFilled,
+  IconX,
+  IconSend,
 } from "@tabler/icons-react";
 import { Button } from "../../src/Button/Button";
 import { ColorSwatch } from "../../src/ColorSwatch/ColorSwatch";
 import { ButtonRibbon } from "../../src/ButtonRibbon/ButtonRibbon";
+import { ButtonIcon } from "../../src/ButtonIcon/ButtonIcon";
 import { InputBox } from "../../src/InputBox/InputBox";
 import { ChatInput } from "../../src/ChatInput/ChatInput";
 import { Dropdown } from "../../src/Dropdown/Dropdown";
@@ -18,7 +20,34 @@ import { PageRow } from "../../src/PageRow/PageRow";
 import { TraceRow } from "../../src/TraceRow/TraceRow";
 import { FolderRow } from "../../src/FolderRow/FolderRow";
 import { LayerRow } from "../../src/LayerRow/LayerRow";
+import { MeasurementRow } from "../../src/MeasurementRow/MeasurementRow";
+import { SubMeasurementRow } from "../../src/MeasurementRow/SubMeasurementRow";
 import "./App.css";
+
+function MeasurementRowDemo() {
+  const [selected, setSelected] = useState(3);
+  const rows = ["Default", "Hover", "Selected"];
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      {rows.map((name, i) => (
+        <MeasurementRow
+          key={i}
+          color="var(--accent-solid)"
+          label={name}
+          value="12.34 ft"
+          selected={selected === i + 1}
+          onSelect={() => setSelected(i + 1)}
+          defaultCollapsed={i !== 2}
+        >
+          <SubMeasurementRow label="Sub Measurement" value="12.34 ft" />
+          <SubMeasurementRow label="Sub Measurement" value="12.34 ft" />
+          <SubMeasurementRow label="Sub Measurement" value="12.34 ft" />
+        </MeasurementRow>
+      ))}
+    </div>
+  );
+}
 
 function LayerRowDemo() {
   const [selected, setSelected] = useState(3);
@@ -99,7 +128,7 @@ export default function App() {
             </div>
           </div>
         </Card>
-        <Card title="BUTTONS">
+        <Card title="Button">
           <div className="stack-lg">
             <div>
               <div className="text-caption token-meta group-heading">
@@ -123,6 +152,25 @@ export default function App() {
                 Disabled
               </Button>
             </div>
+          </div>
+        </Card>
+
+        <Card title="BUTTON ICON">
+          <div className="row">
+            <ButtonIcon
+              icon={<IconX size={16} stroke={1} />}
+              ariaLabel="Default"
+            />
+            <ButtonIcon
+              icon={<IconSend size={16} stroke={1} />}
+              selected
+              ariaLabel="Selected"
+            />
+            <ButtonIcon
+              icon={<IconX size={16} stroke={1} />}
+              disabled
+              ariaLabel="Disabled"
+            />
           </div>
         </Card>
 
@@ -211,6 +259,10 @@ export default function App() {
                 />
               ))}
           </div>
+        </Card>
+
+        <Card title="MEASUREMENT ROW">
+          <MeasurementRowDemo />
         </Card>
 
         <Card title="LAYER ROW">

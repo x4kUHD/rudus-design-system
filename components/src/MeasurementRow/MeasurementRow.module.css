@@ -1,7 +1,7 @@
 .row {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
   width: 100%;
   height: 32px;
   padding: var(--space-1) var(--space-2);
@@ -21,8 +21,20 @@
   background: var(--bg-accent);
 }
 
-.hidden {
-  color: var(--text-tertiary);
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+  transition: transform 120ms ease;
+  cursor: pointer;
+}
+
+.chevron.collapsed {
+  transform: rotate(-90deg);
 }
 
 .label {
@@ -31,29 +43,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-left: var(--space-1);
 }
 
 .placeholder {
   color: var(--text-tertiary);
 }
 
-.eye {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.value {
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: var(--text-primary);
-  cursor: pointer;
-  visibility: hidden;
+  color: var(--text-tertiary);
 }
 
-.row:hover .eye,
-.hidden .eye {
-  visibility: visible;
-}
-
-.eye:hover {
+.selected .value {
   color: var(--text-primary);
 }
